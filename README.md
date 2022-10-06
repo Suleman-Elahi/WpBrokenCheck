@@ -11,7 +11,8 @@ At the end, it saves a CSV file in the current working directory. By default, al
 <p align="center">
   <img src="https://res.cloudinary.com/suleman/image/upload/v1665055858/WpBrokenCheck.png">
 </p>
-**Note**: Only type domain without http:// or https://
+
+**Note** : Only type domain without http:// or https://
 
 ### To Do:
 - Make it filter specific codes.
