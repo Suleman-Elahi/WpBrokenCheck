@@ -19,6 +19,7 @@ headers = {
     'accept-language': 'en-US,en;q=0.9,tr;q=0.8',
 }
 pages = int(sess.get('https://' + domain + '/wp-json/wp/v2/posts', headers=headers).headers['X-WP-TotalPages'])
+
 def prepare_csv_data(id, post_link, data):
            for i in data:
               links404.append({
@@ -28,6 +29,7 @@ def prepare_csv_data(id, post_link, data):
                 "Status Code":i[1],
                 "Link Text":i[0][1]
                 })
+                
 def generate_csv_report(csv_file, csv_data):
    with open(csv_file, 'w+',encoding="utf-8") as file:
        csvwriter = csv.DictWriter(file, fieldnames=list(csv_data[0].keys()))
@@ -59,7 +61,6 @@ def executeBrokenLinkCheck(links):
         futures = [executor.submit(getStatusCode, link, headers) for link in links]
         return [future.result() for future in as_completed(futures)]
 
-       
 for i in range(pages):
     post_data = sess.get('https://' + domain + '/wp-json/wp/v2/posts?page='+str(i+1), headers=headers).json()
     for data in post_data:
@@ -67,5 +68,6 @@ for i in range(pages):
         post_links = getLinks(data["content"]["rendered"])
         checked_urls = executeBrokenLinkCheck(post_links)
         prepare_csv_data(data["id"], data["link"], checked_urls)
+        
 generate_csv_report(csv_file, links404)
 print("Report saved in file: ", csv_file)
