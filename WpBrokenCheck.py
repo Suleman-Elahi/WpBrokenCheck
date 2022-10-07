@@ -40,10 +40,17 @@ def prepare_csv_data(id, post_link, data):
 
 
 def generate_csv_report(csv_file, csv_data):
-    with open(csv_file, "w+", encoding="utf-8") as file:
-        csvwriter = csv.DictWriter(file, fieldnames=list(csv_data[0].keys()))
-        csvwriter.writeheader()
-        csvwriter.writerows(csv_data)
+
+    if csv_data:
+        with open(csv_file, "w+", encoding="utf-8") as file:
+            csvwriter = csv.DictWriter(file, fieldnames=list(csv_data[0].keys()))
+            csvwriter.writeheader()
+            csvwriter.writerows(csv_data)
+
+        print("Report saved in file: ", csv_file)
+
+    if not csv_data:
+        print("There were no broken links!")
 
 
 def getLinks(rendered_content):
@@ -86,4 +93,3 @@ for i in range(pages):
         prepare_csv_data(data["id"], data["link"], checked_urls)
 
 generate_csv_report(csv_file, links404)
-print("Report saved in file: ", csv_file)
