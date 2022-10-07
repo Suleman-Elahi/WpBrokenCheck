@@ -14,6 +14,8 @@ At the end, it saves a CSV file in the current working directory. By default, al
 
 **Note** : Only type domain without http:// or https://
 
+**Tip** : If target website has large number of posts then change `max_workers` from 5 to 10 at line 60.
+
 ### To Do:
 - Make it filter specific codes.
 - Make it run on customized WP sites
