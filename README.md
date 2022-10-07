@@ -5,9 +5,10 @@ At the end, it saves a CSV file in the current working directory. By default, al
 
 ## Running:
 1. Install Python
-2. Run `pip install requests bs4`
-3. Run as `python WpBrokenCheck.py [Domain] [CSV_FileName]`
-4. Example: `python WpBrokenCheck.py example.com example.csv`
+2. Install [Poetry](https://python-poetry.org/docs/#installation)
+3. Run `poetry install`
+4. Run as `poetry run python WpBrokenCheck.py [Domain] [CSV_FileName]`
+5. Example: `poetry run python WpBrokenCheck.py example.com example.csv`
 <p align="center">
   <img src="https://res.cloudinary.com/suleman/image/upload/v1665055858/WpBrokenCheck.png">
 </p>
@@ -15,6 +16,16 @@ At the end, it saves a CSV file in the current working directory. By default, al
 **Note** : Only type domain without http:// or https://
 
 **Tip** : If target website has large number of posts then change `max_workers` from 5 to 10 at line 60.
+
+## Linters:
+
+There are the following Python linters:
+- black for code formatting
+- flake8 code formatting and line brakes (PEP8)
+- isort for reordering imports
+
+They are run via pre-commit as you commit the code to the repository. You can also run it manually on all files by:
+`pre-commit run --all-files`
 
 ### To Do:
 - Make it filter specific codes.
