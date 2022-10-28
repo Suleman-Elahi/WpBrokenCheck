@@ -30,6 +30,6 @@ They are run via pre-commit as you commit the code to the repository. You can al
 ### To Do:
 - Make it filter specific codes.
 - Make it run on customized WP sites
-- Push binary releases
+- ~~Push binary releases~~
 
 PRs and suggestions are welcome :)
