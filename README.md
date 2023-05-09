@@ -2,7 +2,7 @@
 
 [![HitCount](https://hits.dwyl.com/suleman-elahi/WpBrokenCheck.svg?style=flat)](http://hits.dwyl.com/suleman-elahi/WpBrokenCheck)
 
-![](https://komarev.com/ghpvc/?username=WpBrokenCheck&color=green)
+![](https://komarev.com/ghpvc/?username=WpBrokenCheck&color=green&label=VIEWS)
 
 This is a simple Python script you can use to find out broken links on a WordPress website. It uses WordPress's API v2 to get all the published posts and scans all the links inside including internal links, external links, attachments, images, etc.
 
