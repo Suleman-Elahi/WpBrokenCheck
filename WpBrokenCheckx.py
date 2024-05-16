@@ -42,14 +42,14 @@ async def generate_csv_report(csv_file, csv_data):
 def getLinks(rendered_content):
     soup = bs4.BeautifulSoup(rendered_content, "html.parser")
     return [(link["href"], link.text) for link in soup("a") if "href" in link.attrs]
-
+    
 async def getStatusCode(client, link, headers, timeout=5):
     print("    checking: ", link[0])
     try:
         r = await client.head(link[0], headers=headers, timeout=timeout)
-    except (
-        httpx.RequestError,
-    ) as errh:
+        if r.status_code in {404, 400, 403}:
+            r = await client.get(link[0], headers=headers, timeout=timeout)
+    except httpx.RequestError as errh:
         print("Error in URL, ", link)
         return link, errh.__class__.__name__
     else:
