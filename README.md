@@ -1,7 +1,7 @@
 ## Update 2024
 
 * Ported script to use `httpx` instead of `requests`. Try that here: [WpBrokenCheckx.py](https://github.com/Suleman-Elahi/WpBrokenCheck/blob/main/WpBrokenCheckx.py)
-* This version of the script is 15% faster as well :)
+* This version of the script is 15% faster as well 🥳🚀
 
 
 # WpBrokenCheck
